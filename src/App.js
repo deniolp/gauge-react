@@ -6,22 +6,22 @@ function App() {
   return (
     <div className="contaner">
       <GaugeComponent
-        min={0}
-        max={100}
+        minSize={0}
+        maxSize={100}
         initialValue={42}
         label={`Speed`}
         units={`kilometers per hour`}
       ></GaugeComponent>
       <GaugeComponent
-        min={0}
-        max={30}
+        minSize={0}
+        maxSize={30}
         initialValue={12}
         label={`Visibility`}
         units={`kilometers`}
       ></GaugeComponent>
       <GaugeComponent
-        min={0}
-        max={4000}
+        minSize={0}
+        maxSize={4000}
         initialValue={42}
         label={`Pressure`}
         units={`hectopascals`}

@@ -22,10 +22,13 @@ const GaugeComponent = ({
         label={label}
         units={units}
       ></Gauge>
-      <h6>Update value</h6>
+      <label for={label}>
+        <h6>Update value</h6>
+      </label>
       <input
         type="range"
         className="range"
+        id={label}
         min={minSize}
         max={maxSize}
         value={value}
