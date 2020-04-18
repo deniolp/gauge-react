@@ -24,6 +24,9 @@ const Gauge = ({value = 50, min = 0, max = 100, label, units}) => {
     .endAngle(angle)
     .cornerRadius(1)();
 
+  const colorScale = scaleLinear().domain([0, 1]).range(['#dbdbe7', '#4834d4']);
+  const gradientSteps = colorScale.ticks(10).map((value) => colorScale(value));
+
   return (
     <div>
       <svg
@@ -31,8 +34,25 @@ const Gauge = ({value = 50, min = 0, max = 100, label, units}) => {
         width="9em"
         viewBox={[-1, -1, 2, 1].join(' ')}
       >
+        <defs>
+          <linearGradient
+            id="Gauge__gradient"
+            gradientUnits="userSpaceOnUse"
+            x1="-1"
+            x2="1"
+            y2="0"
+          >
+            {gradientSteps.map((color, index) => (
+              <stop
+                key={color}
+                stopColor={color}
+                offset={`${index / (gradientSteps.length - 1)}`}
+              />
+            ))}
+          </linearGradient>
+        </defs>
         <path d={backgroundArc} fill="#dbdbe7" />
-        <path d={filledArc} fill="#9980FA" />
+        <path d={filledArc} fill="url(#Gauge__gradient)" />
       </svg>
     </div>
   );
