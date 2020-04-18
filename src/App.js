@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Gauge from './Gauge';
+import GaugeComponent from './GaugeComponent';
 
 function App() {
   return (
-    <div className={`center`}>
-      <Gauge></Gauge>
+    <div className="center">
+      <GaugeComponent></GaugeComponent>
     </div>
   );
 }
