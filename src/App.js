@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Gauge from './Gauge';
+
 function App() {
   return (
-    <div>
-      <h1>Hello!</h1>
+    <div className={`center`}>
+      <Gauge></Gauge>
     </div>
   );
 }
