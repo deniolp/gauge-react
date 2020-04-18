@@ -4,7 +4,7 @@ import GaugeComponent from './GaugeComponent';
 
 function App() {
   return (
-    <div className="center">
+    <div className="contaner">
       <GaugeComponent
         min={0}
         max={100}

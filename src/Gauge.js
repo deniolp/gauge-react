@@ -42,7 +42,7 @@ const Gauge = ({
   const markerLocation = getCoordsOnArc(angle, 1 - (1 - 0.65) / 2);
 
   return (
-    <div style={{textAlign: 'center'}}>
+    <div className="gauge">
       <svg
         style={{overflow: 'visible'}}
         width="9em"

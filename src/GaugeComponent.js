@@ -14,7 +14,7 @@ const GaugeComponent = ({
     setValue(event.target.value);
   };
   return (
-    <>
+    <div className="gaugeComp">
       <Gauge
         value={value}
         min={minSize}
@@ -22,6 +22,7 @@ const GaugeComponent = ({
         label={label}
         units={units}
       ></Gauge>
+      <h6>Update value</h6>
       <input
         type="range"
         className="range"
@@ -30,7 +31,7 @@ const GaugeComponent = ({
         value={value}
         onChange={handleChange}
       ></input>
-    </>
+    </div>
   );
 };
 
