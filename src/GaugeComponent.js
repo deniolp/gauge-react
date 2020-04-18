@@ -22,7 +22,7 @@ const GaugeComponent = ({
         label={label}
         units={units}
       ></Gauge>
-      <label for={label}>
+      <label htmlFor={label}>
         <h6>Update value</h6>
       </label>
       <input

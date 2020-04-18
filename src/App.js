@@ -1,10 +1,31 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import GaugeComponent from './GaugeComponent';
+import Gauge from './Gauge';
+
+const SECONDS = 1000;
 
 function App() {
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    if (time >= SECONDS) {
+      return;
+    }
+    setTimeout(() => {
+      setTime(time + 1);
+    }, 1000);
+  }, [time]);
+
   return (
     <div className="contaner">
+      <Gauge
+        min={0}
+        max={SECONDS}
+        value={time}
+        label={`Time spent reading`}
+        units={`seconds`}
+      ></Gauge>
       <GaugeComponent
         minSize={0}
         maxSize={100}
