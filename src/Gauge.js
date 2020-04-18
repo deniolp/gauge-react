@@ -8,7 +8,13 @@ const getCoordsOnArc = (angle, offset = 10) => [
   Math.sin(angle - Math.PI / 2) * offset,
 ];
 
-const Gauge = ({value = 10, min = 0, max = 100, label, units}) => {
+const Gauge = ({
+  value = 70,
+  min = 0,
+  max = 100,
+  label = `Label`,
+  units = `units`,
+}) => {
   const backgroundArc = arc()
     .innerRadius(0.65)
     .outerRadius(1)
@@ -36,7 +42,7 @@ const Gauge = ({value = 10, min = 0, max = 100, label, units}) => {
   const markerLocation = getCoordsOnArc(angle, 1 - (1 - 0.65) / 2);
 
   return (
-    <div>
+    <div style={{textAlign: 'center'}}>
       <svg
         style={{overflow: 'visible'}}
         width="9em"
@@ -84,11 +90,35 @@ const Gauge = ({value = 10, min = 0, max = 100, label, units}) => {
           fontSize: '3em',
           lineHeight: '1em',
           fontWeight: '900',
-          fontFeatureSettings: "'zero', 'tnum' 1",
         }}
       >
         {format(',')(value)}
       </div>
+
+      {!!label && (
+        <div
+          style={{
+            color: '#8b8ba7',
+            marginTop: '0.6em',
+            fontSize: '1.3em',
+            lineHeight: '1.3em',
+            fontWeight: '700',
+          }}
+        >
+          {label}
+        </div>
+      )}
+      {!!units && (
+        <div
+          style={{
+            color: '#8b8ba7',
+            lineHeight: '1.3em',
+            fontWeight: '300',
+          }}
+        >
+          {units}
+        </div>
+      )}
     </div>
   );
 };
