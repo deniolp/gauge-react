@@ -1,6 +1,7 @@
 import React from 'react';
 import {arc} from 'd3-shape';
 import {scaleLinear} from 'd3-scale';
+import {format} from 'd3-format';
 
 const getCoordsOnArc = (angle, offset = 10) => [
   Math.cos(angle - Math.PI / 2) * offset,
@@ -77,6 +78,17 @@ const Gauge = ({value = 10, min = 0, max = 100, label, units}) => {
           fill="#6a6a85"
         />
       </svg>
+      <div
+        style={{
+          marginTop: '0.4em',
+          fontSize: '3em',
+          lineHeight: '1em',
+          fontWeight: '900',
+          fontFeatureSettings: "'zero', 'tnum' 1",
+        }}
+      >
+        {format(',')(value)}
+      </div>
     </div>
   );
 };
