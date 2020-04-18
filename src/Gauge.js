@@ -2,6 +2,11 @@ import React from 'react';
 import {arc} from 'd3-shape';
 import {scaleLinear} from 'd3-scale';
 
+const getCoordsOnArc = (angle, offset = 10) => [
+  Math.cos(angle - Math.PI / 2) * offset,
+  Math.sin(angle - Math.PI / 2) * offset,
+];
+
 const Gauge = ({value = 50, min = 0, max = 100, label, units}) => {
   const backgroundArc = arc()
     .innerRadius(0.65)
@@ -26,6 +31,8 @@ const Gauge = ({value = 50, min = 0, max = 100, label, units}) => {
 
   const colorScale = scaleLinear().domain([0, 1]).range(['#dbdbe7', '#4834d4']);
   const gradientSteps = colorScale.ticks(10).map((value) => colorScale(value));
+
+  const markerLocation = getCoordsOnArc(angle, 1 - (1 - 0.65) / 2);
 
   return (
     <div>
@@ -53,6 +60,15 @@ const Gauge = ({value = 50, min = 0, max = 100, label, units}) => {
         </defs>
         <path d={backgroundArc} fill="#dbdbe7" />
         <path d={filledArc} fill="url(#Gauge__gradient)" />
+        <line y1="-1" y2="-0.65" stroke="white" strokeWidth="0.027" />
+        <circle
+          cx={markerLocation[0]}
+          cy={markerLocation[1]}
+          r="0.2"
+          stroke="#2c3e50"
+          strokeWidth="0.01"
+          fill={colorScale(percent)}
+        />
       </svg>
     </div>
   );
