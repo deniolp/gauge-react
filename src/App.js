@@ -8,21 +8,21 @@ function App() {
       <GaugeComponent
         minSize={0}
         maxSize={100}
-        initialValue={42}
+        initialValue={50}
         label={`Speed`}
         units={`kilometers per hour`}
       ></GaugeComponent>
       <GaugeComponent
         minSize={0}
         maxSize={30}
-        initialValue={12}
+        initialValue={15}
         label={`Visibility`}
         units={`kilometers`}
       ></GaugeComponent>
       <GaugeComponent
         minSize={0}
         maxSize={4000}
-        initialValue={42}
+        initialValue={2000}
         label={`Pressure`}
         units={`hectopascals`}
       ></GaugeComponent>

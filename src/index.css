@@ -6,10 +6,10 @@
 
 body {
   font-size: 18px;
+  font-family: 'Baloo Bhaina 2', cursive;
   line-height: 1.8em;
   letter-spacing: -0.014em;
-  font-feature-settings: "ss03", "zero", "cv08", "cv11" 1;
-  background: #f8f9fa;
+  background: #f0efed;
   text-transform: none;
 }
 
@@ -37,7 +37,7 @@ body {
 }
 
 .range {
-  width: 10em;
+  width: 12em;
 }
 
 h6 {
@@ -46,5 +46,5 @@ h6 {
   margin: 2em 0 .6em;
   text-transform: uppercase;
   font-weight: 400;
-  color: #bdbdcf;
+  color: #eb7a1e;
 }

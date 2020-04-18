@@ -36,7 +36,7 @@ const Gauge = ({
     .endAngle(angle)
     .cornerRadius(1)();
 
-  const colorScale = scaleLinear().domain([0, 1]).range(['#dbdbe7', '#4834d4']);
+  const colorScale = scaleLinear().domain([0, 1]).range(['#f2ca8d', '#eb7a1e']);
   const gradientSteps = colorScale.ticks(10).map((value) => colorScale(value));
 
   const markerLocation = getCoordsOnArc(angle, 1 - (1 - 0.65) / 2);
@@ -65,14 +65,14 @@ const Gauge = ({
             ))}
           </linearGradient>
         </defs>
-        <path d={backgroundArc} fill="#dbdbe7" />
+        <path d={backgroundArc} fill="#f0e5d3" />
         <path d={filledArc} fill="url(#Gauge__gradient)" />
         <line y1="-1" y2="-0.65" stroke="white" strokeWidth="0.027" />
         <circle
           cx={markerLocation[0]}
           cy={markerLocation[1]}
           r="0.2"
-          stroke="#2c3e50"
+          stroke="#593c26"
           strokeWidth="0.01"
           fill={colorScale(percent)}
         />
@@ -81,14 +81,16 @@ const Gauge = ({
           transform={`rotate(${
             angle * (180 / Math.PI)
           }) translate(-0.2, -0.33)`}
-          fill="#6a6a85"
+          fill="#d97314"
         />
       </svg>
       <div
         style={{
+          color: '#6b4623',
           marginTop: '0.4em',
           fontSize: '3em',
           lineHeight: '1em',
+          letterSpacing: '0.1em',
           fontWeight: '900',
         }}
       >
@@ -98,7 +100,7 @@ const Gauge = ({
       {!!label && (
         <div
           style={{
-            color: '#8b8ba7',
+            color: '#eb7a1e',
             marginTop: '0.6em',
             fontSize: '1.3em',
             lineHeight: '1.3em',
@@ -111,7 +113,7 @@ const Gauge = ({
       {!!units && (
         <div
           style={{
-            color: '#8b8ba7',
+            color: '#eb7a1e',
             lineHeight: '1.3em',
             fontWeight: '300',
           }}
